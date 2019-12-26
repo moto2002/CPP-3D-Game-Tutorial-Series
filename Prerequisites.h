@@ -8,23 +8,15 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-#include "AppWindow.h"
-#include "InputSystem.h"
+#pragma once
 
-#include "AppWindow.h"
+class SwapChain;
+class DeviceContext;
+class VertexBuffer;
+class IndexBuffer;
+class ConstantBuffer;
+class VertexShader;
+class PixelShader;
+class RenderSystem;
+class GraphicsEngine;
 
-
-
-int main()
-{
-	AppWindow app;
-	if (app.init())
-	{
-		while (app.isRun())
-		{
-			app.broadcast();
-		}
-	}
-
-	return 0;
-}

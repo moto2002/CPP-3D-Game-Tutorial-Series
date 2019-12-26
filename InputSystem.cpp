@@ -63,7 +63,7 @@ void InputSystem::update()
 				{
 					if (i == VK_LBUTTON)
 					{
-						if (m_keys_state[i] != m_old_keys_state[i]) 
+						if (m_keys_state[i] != m_old_keys_state[i])
 							(*it)->onLeftMouseDown(Point(current_mouse_pos.x, current_mouse_pos.y));
 					}
 					else if (i == VK_RBUTTON)

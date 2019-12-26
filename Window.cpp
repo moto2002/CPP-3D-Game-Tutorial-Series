@@ -15,11 +15,11 @@
 
 Window::Window()
 {
-	
+
 }
 
 
-LRESULT CALLBACK WndProc(HWND hwnd,UINT msg, WPARAM wparam, LPARAM lparam)
+LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
 	//GetWindowLong(hwnd,)
 	switch (msg)
@@ -52,7 +52,7 @@ LRESULT CALLBACK WndProc(HWND hwnd,UINT msg, WPARAM wparam, LPARAM lparam)
 	case WM_DESTROY:
 	{
 		// Event fired when the window is destroyed
-		Window* window =(Window*) GetWindowLongPtr(hwnd, GWLP_USERDATA);
+		Window* window = (Window*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
 		window->onDestroy();
 		::PostQuitMessage(0);
 		break;
@@ -90,15 +90,15 @@ bool Window::init()
 		return false;
 
 	/*if (!window)
-		window = this;*/
+	window = this;*/
 
 	//Creation of the window
-	m_hwnd=::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MyWindowClass", "DirectX Application", 
-		WS_CAPTION|WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768,
+	m_hwnd = ::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, "MyWindowClass", "DirectX Application",
+		WS_CAPTION | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768,
 		NULL, NULL, NULL, this);
 
 	//if the creation fail return false
-	if (!m_hwnd) 
+	if (!m_hwnd)
 		return false;
 
 	//show up the window
@@ -106,7 +106,7 @@ bool Window::init()
 	::UpdateWindow(m_hwnd);
 
 
-	
+
 
 	//set this flag to true to indicate that the window is initialized and running
 	m_is_run = true;

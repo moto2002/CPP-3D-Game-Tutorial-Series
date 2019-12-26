@@ -29,7 +29,7 @@ public:
 
 public:
 	static InputSystem* get();
-private:	
+private:
 	std::unordered_set<InputListener*> m_set_listeners;
 	unsigned char m_keys_state[256] = {};
 	unsigned char m_old_keys_state[256] = {};

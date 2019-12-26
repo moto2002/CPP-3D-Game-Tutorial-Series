@@ -49,7 +49,7 @@ public:
 	virtual void onRightMouseUp(const Point& mouse_pos) override;
 
 private:
-	SwapChain * m_swap_chain;
+	SwapChain* m_swap_chain;
 	VertexBuffer* m_vb;
 	VertexShader* m_vs;
 	PixelShader* m_ps;
