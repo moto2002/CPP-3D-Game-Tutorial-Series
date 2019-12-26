@@ -9,7 +9,7 @@
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 #include "GraphicsEngine.h"
-
+#include "SwapChain.h"
 
 GraphicsEngine::GraphicsEngine()
 {
@@ -32,6 +32,7 @@ bool GraphicsEngine::init()
 	UINT num_feature_levels = ARRAYSIZE(feature_levels);
 
 	HRESULT res = 0;
+
 	for (UINT driver_type_index = 0; driver_type_index < num_driver_types;)
 	{
 		res =D3D11CreateDevice(NULL, driver_types[driver_type_index], NULL, NULL, feature_levels,
@@ -46,6 +47,9 @@ bool GraphicsEngine::init()
 	}
 
 
+	m_d3d_device->QueryInterface(__uuidof(IDXGIDevice),(void**)&m_dxgi_device);
+	m_dxgi_device->GetParent(__uuidof(IDXGIAdapter), (void**)&m_dxgi_adapter);
+	m_dxgi_adapter->GetParent(__uuidof(IDXGIFactory), (void**)&m_dxgi_factory);
 
 	return true;
 }
@@ -53,6 +57,10 @@ bool GraphicsEngine::init()
 
 bool GraphicsEngine::release()
 {
+	m_dxgi_device->Release();
+	m_dxgi_adapter->Release();
+	m_dxgi_factory->Release();
+
 	m_imm_context->Release();
 	m_d3d_device->Release();
 	return true;
@@ -62,6 +70,10 @@ GraphicsEngine::~GraphicsEngine()
 {
 }
 
+SwapChain * GraphicsEngine::createSwapChain()
+{
+	return new SwapChain();
+}
 
 GraphicsEngine * GraphicsEngine::get()
 {

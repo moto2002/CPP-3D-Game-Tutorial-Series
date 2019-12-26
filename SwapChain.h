@@ -9,21 +9,18 @@
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 #pragma once
-#include "Window.h"
-#include "GraphicsEngine.h"
-#include "SwapChain.h"
+#include <d3d11.h>
 
-class AppWindow: public Window
+class SwapChain
 {
 public:
-	AppWindow();
-	~AppWindow();
-
-	// Inherited via Window
-	virtual void onCreate() override;
-	virtual void onUpdate() override;
-	virtual void onDestroy() override;
+	SwapChain();
+	//Initialize SwapChain for a window
+	bool init(HWND hwnd,UINT width,UINT height);
+	//Release the swap chain
+	bool release();
+	~SwapChain();
 private:
-	SwapChain * m_swap_chain;
+	IDXGISwapChain * m_swap_chain;
 };
 
