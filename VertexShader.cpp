@@ -8,26 +8,32 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-#pragma once
-#include "Window.h"
-#include "GraphicsEngine.h"
-#include "SwapChain.h"
-#include "DeviceContext.h"
-#include "VertexBuffer.h"
 #include "VertexShader.h"
-class AppWindow: public Window
-{
-public:
-	AppWindow();
-	~AppWindow();
+#include "GraphicsEngine.h"
 
-	// Inherited via Window
-	virtual void onCreate() override;
-	virtual void onUpdate() override;
-	virtual void onDestroy() override;
-private:
-	SwapChain * m_swap_chain;
-	VertexBuffer* m_vb;
-	VertexShader* m_vs;
-};
+
+VertexShader::VertexShader()
+{
+}
+
+void VertexShader::release()
+{
+	m_vs->Release();
+	delete this;
+}
+
+bool VertexShader::init(const void* shader_byte_code, size_t byte_code_size)
+{
+	if (!SUCCEEDED(GraphicsEngine::get()->m_d3d_device->CreateVertexShader(shader_byte_code, byte_code_size, nullptr, &m_vs)))
+		return false;
+
+	return true;
+}
+
+
+
+VertexShader::~VertexShader()
+{
+}
+
 

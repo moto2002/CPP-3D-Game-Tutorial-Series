@@ -8,26 +8,20 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-#pragma once
-#include "Window.h"
-#include "GraphicsEngine.h"
-#include "SwapChain.h"
-#include "DeviceContext.h"
-#include "VertexBuffer.h"
-#include "VertexShader.h"
-class AppWindow: public Window
+
+float4 vsmain( float4 position: POSITION): SV_POSITION
 {
-public:
-	AppWindow();
-	~AppWindow();
+	if (position.y > 0 && position.y < 1)
+	{
+		position.x += 0.25f;
+	}
 
-	// Inherited via Window
-	virtual void onCreate() override;
-	virtual void onUpdate() override;
-	virtual void onDestroy() override;
-private:
-	SwapChain * m_swap_chain;
-	VertexBuffer* m_vb;
-	VertexShader* m_vs;
-};
 
+	if (position.y > 0 && position.y < 1 && position.x > -1 && position.x < 0)
+	{
+		position.y -= 0.25f;
+	}
+
+
+	return position;
+}

@@ -9,25 +9,24 @@
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 #pragma once
-#include "Window.h"
-#include "GraphicsEngine.h"
-#include "SwapChain.h"
-#include "DeviceContext.h"
-#include "VertexBuffer.h"
-#include "VertexShader.h"
-class AppWindow: public Window
+#include <d3d11.h>
+
+
+class GraphicsEngine;
+class DeviceContext;
+
+class VertexShader
 {
 public:
-	AppWindow();
-	~AppWindow();
-
-	// Inherited via Window
-	virtual void onCreate() override;
-	virtual void onUpdate() override;
-	virtual void onDestroy() override;
+	VertexShader();
+	void release();
+	~VertexShader();
 private:
-	SwapChain * m_swap_chain;
-	VertexBuffer* m_vb;
-	VertexShader* m_vs;
+	bool init(const void* shader_byte_code, size_t byte_code_size);
+private:
+	ID3D11VertexShader * m_vs;
+private:
+	friend class GraphicsEngine;
+	friend class DeviceContext;
 };
 
