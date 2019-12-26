@@ -11,25 +11,17 @@
 #pragma once
 #include <d3d11.h>
 
-class DeviceContext;
-class SwapChain
+class SwapChain;
+
+class DeviceContext
 {
 public:
-	SwapChain();
-	//Initialize SwapChain for a window
-	bool init(HWND hwnd,UINT width,UINT height);
+	DeviceContext(ID3D11DeviceContext* device_context);
+	bool clearRenderTargetColor(SwapChain* swap_chain,float red, float green, float blue, float alpha);
 
-
-	bool present(bool vsync);
-
-	//Release the swap chain
 	bool release();
-	~SwapChain();
+	~DeviceContext();
 private:
-	IDXGISwapChain * m_swap_chain;
-	ID3D11RenderTargetView* m_rtv;
-	ID3D11DepthStencilView* m_dsv;
-private:
-	friend class DeviceContext;
+	ID3D11DeviceContext * m_device_context;
 };
 
