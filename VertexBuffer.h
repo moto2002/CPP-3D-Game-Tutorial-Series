@@ -11,21 +11,23 @@
 #pragma once
 #include <d3d11.h>
 
-class SwapChain;
-class VertexBuffer;
+class DeviceContext;
 
-class DeviceContext
+class VertexBuffer
 {
 public:
-	DeviceContext(ID3D11DeviceContext* device_context);
-	void clearRenderTargetColor(SwapChain* swap_chain,float red, float green, float blue, float alpha);
-	void setVertexBuffer(VertexBuffer* vertex_buffer);
-	void drawTriangleList(UINT vertex_count, UINT start_vertex_index);
-	void setViewportSize(UINT width, UINT height);
-
+	VertexBuffer();
+	bool load(void* list_vertices, UINT size_vertex, UINT size_list, void*shader_byte_code, UINT size_byte_shader);
+	UINT getSizeVertexList();
 	bool release();
-	~DeviceContext();
+	~VertexBuffer();
 private:
-	ID3D11DeviceContext * m_device_context;
+	UINT m_size_vertex;
+	UINT m_size_list;
+private:
+	ID3D11Buffer * m_buffer;
+	ID3D11InputLayout* m_layout;
+private:
+	friend class DeviceContext;
 };
 

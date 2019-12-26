@@ -38,7 +38,7 @@ LRESULT CALLBACK WndProc(HWND hwnd,UINT msg, WPARAM wparam, LPARAM lparam)
 	case WM_DESTROY:
 	{
 		// Event fired when the window is destroyed
-		Window* window =(Window*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+		Window* window =(Window*) GetWindowLongPtr(hwnd, GWLP_USERDATA);
 		window->onDestroy();
 		::PostQuitMessage(0);
 		break;

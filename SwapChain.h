@@ -29,6 +29,8 @@ private:
 	IDXGISwapChain * m_swap_chain;
 	ID3D11RenderTargetView* m_rtv;
 	ID3D11DepthStencilView* m_dsv;
+
+
 private:
 	friend class DeviceContext;
 };
