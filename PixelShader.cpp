@@ -8,29 +8,30 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-#pragma once
-#include "Window.h"
-#include "GraphicsEngine.h"
-#include "SwapChain.h"
-#include "DeviceContext.h"
-#include "VertexBuffer.h"
-#include "VertexShader.h"
 #include "PixelShader.h"
+#include "GraphicsEngine.h"
 
-class AppWindow: public Window
+
+PixelShader::PixelShader()
 {
-public:
-	AppWindow();
-	~AppWindow();
+}
 
-	// Inherited via Window
-	virtual void onCreate() override;
-	virtual void onUpdate() override;
-	virtual void onDestroy() override;
-private:
-	SwapChain * m_swap_chain;
-	VertexBuffer* m_vb;
-	VertexShader* m_vs;
-	PixelShader* m_ps;
-};
+void PixelShader::release()
+{
+	m_ps->Release();
+	delete this;
+}
 
+bool PixelShader::init(const void* shader_byte_code, size_t byte_code_size)
+{
+	if (!SUCCEEDED(GraphicsEngine::get()->m_d3d_device->CreatePixelShader(shader_byte_code, byte_code_size, nullptr, &m_ps)))
+		return false;
+
+	return true;
+}
+
+
+
+PixelShader::~PixelShader()
+{
+}

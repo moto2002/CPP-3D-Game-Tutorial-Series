@@ -8,25 +8,14 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-struct VS_INPUT
-{
-	float4 position: POSITION;
-	float3 color: COLOR;
-};
-
-struct VS_OUTPUT
+struct PS_INPUT
 {
 	float4 position: SV_POSITION;
 	float3 color: COLOR;
 };
 
 
-VS_OUTPUT vsmain(VS_INPUT input)
+float4 psmain(PS_INPUT input) : SV_TARGET
 {
-	VS_OUTPUT output = (VS_OUTPUT)0;
-	
-	output.position = input.position;
-	output.color = input.color;
-
-	return output;
+	return float4(input.color,1.0f);
 }
