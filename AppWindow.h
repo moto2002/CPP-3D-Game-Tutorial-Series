@@ -8,6 +8,7 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
+
 #pragma once
 #include "Window.h"
 #include "GraphicsEngine.h"
@@ -22,6 +23,9 @@ class AppWindow: public Window
 {
 public:
 	AppWindow();
+
+	void updateQuadPosition();
+
 	~AppWindow();
 
 	// Inherited via Window
@@ -34,5 +38,13 @@ private:
 	VertexShader* m_vs;
 	PixelShader* m_ps;
 	ConstantBuffer* m_cb;
+private:
+	long m_old_delta;
+	long m_new_delta;
+	float m_delta_time;
+
+	float m_delta_pos;
+	float m_delta_scale;
+	float m_delta_rot;
 };
 
