@@ -13,7 +13,7 @@
 
 #include "InputSystem.h"
 #include <Windows.h>
-
+InputSystem* InputSystem::m_system = nullptr;
 
 InputSystem::InputSystem()
 {
@@ -22,6 +22,7 @@ InputSystem::InputSystem()
 
 InputSystem::~InputSystem()
 {
+	InputSystem::m_system = nullptr;
 }
 
 void InputSystem::update()
@@ -63,7 +64,7 @@ void InputSystem::update()
 				{
 					if (i == VK_LBUTTON)
 					{
-						if (m_keys_state[i] != m_old_keys_state[i])
+						if (m_keys_state[i] != m_old_keys_state[i]) 
 							(*it)->onLeftMouseDown(Point(current_mouse_pos.x, current_mouse_pos.y));
 					}
 					else if (i == VK_RBUTTON)
@@ -128,4 +129,16 @@ InputSystem * InputSystem::get()
 {
 	static InputSystem system;
 	return &system;
+}
+
+void InputSystem::create()
+{
+	if (InputSystem::m_system) throw std::exception("InputSystem already created");
+	InputSystem::m_system = new InputSystem();
+}
+
+void InputSystem::release()
+{
+	if (!InputSystem::m_system) return;
+	delete InputSystem::m_system;
 }
