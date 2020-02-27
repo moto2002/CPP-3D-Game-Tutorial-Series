@@ -1,4 +1,4 @@
-// Copyright (c) 2019  PardCode.
+// Copyright (c) 2019 - 2020 PardCode
 // All rights reserved.
 //
 // This file is part of CPP-3D-Game-Tutorial-Series Project, accessible from https://github.com/PardCode/CPP-3D-Game-Tutorial-Series
@@ -20,7 +20,14 @@ GraphicsEngine::GraphicsEngine()
 	{
 		m_render_system = new RenderSystem();
 	}
-	catch (...) { throw std::exception("Graphics Engine not created successfully"); }
+	catch (...) { throw std::exception("RenderSystem not created successfully"); }
+
+	try
+	{
+		m_tex_manager = new TextureManager();
+	}
+	catch (...) { throw std::exception("TextureManager not created successfully"); }
+
 }
 
 RenderSystem * GraphicsEngine::getRenderSystem()
@@ -28,9 +35,15 @@ RenderSystem * GraphicsEngine::getRenderSystem()
 	return m_render_system;
 }
 
+TextureManager * GraphicsEngine::getTextureManager()
+{
+	return m_tex_manager;
+}
+
 GraphicsEngine::~GraphicsEngine()
 {
 	GraphicsEngine::m_engine = nullptr;
+	delete m_tex_manager;
 	delete m_render_system;
 }
 

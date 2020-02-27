@@ -1,4 +1,4 @@
-// Copyright (c) 2019  PardCode.
+// Copyright (c) 2019 - 2020 PardCode
 // All rights reserved.
 //
 // This file is part of CPP-3D-Game-Tutorial-Series Project, accessible from https://github.com/PardCode/CPP-3D-Game-Tutorial-Series
@@ -17,7 +17,7 @@ IndexBuffer::IndexBuffer(void* list_indices, UINT size_list,RenderSystem * syste
 	D3D11_BUFFER_DESC buff_desc = {};
 	buff_desc.Usage = D3D11_USAGE_DEFAULT;
 	buff_desc.ByteWidth = 4 * size_list;
-	buff_desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	buff_desc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	buff_desc.CPUAccessFlags = 0;
 	buff_desc.MiscFlags = 0;
 

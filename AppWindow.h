@@ -1,4 +1,4 @@
-// Copyright (c) 2019  PardCode.
+// Copyright (c) 2019 - 2020 PardCode
 // All rights reserved.
 //
 // This file is part of CPP-3D-Game-Tutorial-Series Project, accessible from https://github.com/PardCode/CPP-3D-Game-Tutorial-Series
@@ -55,6 +55,7 @@ private:
 	PixelShaderPtr m_ps;
 	ConstantBufferPtr m_cb;
 	IndexBufferPtr m_ib;
+	TexturePtr m_wood_tex;
 private:
 	long m_old_delta;
 	long m_new_delta;

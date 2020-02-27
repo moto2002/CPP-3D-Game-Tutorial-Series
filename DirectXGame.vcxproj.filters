@@ -43,6 +43,12 @@
     <Filter Include="GameEngine\GraphicsEngine\RenderSystem\VertexShader">
       <UniqueIdentifier>{887c1565-faab-46c6-b74f-4f920ac180df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager">
+      <UniqueIdentifier>{f4ba44e6-62aa-4562-a7cb-500583ff272d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ResourceManager\TextureManager">
+      <UniqueIdentifier>{e9dfcb3b-f4c7-4200-9a54-927d266bf374}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,6 +89,18 @@
     </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
       <Filter>GameEngine\GraphicsEngine\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +157,21 @@
     </ClInclude>
     <ClInclude Include="Prerequisites.h">
       <Filter>GameEngine\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>GameEngine\GraphicsEngine\ResourceManager\TextureManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>GameEngine\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

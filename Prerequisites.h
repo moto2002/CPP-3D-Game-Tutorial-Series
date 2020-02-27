@@ -1,4 +1,4 @@
-// Copyright (c) 2019  PardCode.
+// Copyright (c) 2019 - 2020 PardCode
 // All rights reserved.
 //
 // This file is part of CPP-3D-Game-Tutorial-Series Project, accessible from https://github.com/PardCode/CPP-3D-Game-Tutorial-Series
@@ -20,6 +20,10 @@ class VertexShader;
 class PixelShader;
 class RenderSystem;
 class GraphicsEngine;
+class Resource;
+class ResourceManager;
+class Texture;
+class TextureManager;
 
 typedef std::shared_ptr<SwapChain> SwapChainPtr;
 typedef std::shared_ptr<DeviceContext> DeviceContextPtr;
@@ -28,3 +32,5 @@ typedef std::shared_ptr<IndexBuffer> IndexBufferPtr;
 typedef std::shared_ptr<ConstantBuffer> ConstantBufferPtr;
 typedef std::shared_ptr<VertexShader> VertexShaderPtr;
 typedef std::shared_ptr<PixelShader> PixelShaderPtr;
+typedef std::shared_ptr<Resource> ResourcePtr;
+typedef std::shared_ptr<Texture> TexturePtr;

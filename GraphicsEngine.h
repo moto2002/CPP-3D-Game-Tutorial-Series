@@ -1,4 +1,4 @@
-// Copyright (c) 2019  PardCode.
+// Copyright (c) 2019 - 2020 PardCode
 // All rights reserved.
 //
 // This file is part of CPP-3D-Game-Tutorial-Series Project, accessible from https://github.com/PardCode/CPP-3D-Game-Tutorial-Series
@@ -12,6 +12,7 @@
 #include <d3d11.h>
 #include "Prerequisites.h"
 #include "RenderSystem.h"
+#include "TextureManager.h"
 
 class GraphicsEngine
 {
@@ -21,13 +22,15 @@ private:
 	//Release all the resources loaded
 	~GraphicsEngine();
 public:
-	RenderSystem * getRenderSystem();	
+	RenderSystem * getRenderSystem();
+	TextureManager *getTextureManager();
 public:
 	static GraphicsEngine* get();
 	static void create();
 	static void release();
 private:
 	RenderSystem * m_render_system = nullptr;
+	TextureManager * m_tex_manager = nullptr;
 	static GraphicsEngine* m_engine;
 };
 
