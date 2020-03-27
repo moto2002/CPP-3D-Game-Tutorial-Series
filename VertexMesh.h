@@ -8,26 +8,28 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-Texture2D Texture: register(t0);
-sampler TextureSampler: register(s0);
+#pragma once
+#include "Vector3D.h"
+#include "Vector2D.h"
 
-
-
-struct PS_INPUT
+class VertexMesh
 {
-	float4 position: SV_POSITION;
-	float2 texcoord: TEXCOORD0;
+public:
+	VertexMesh() :m_position(), m_texcoord()
+	{
+	}
+	VertexMesh(Vector3D position, Vector2D texcoord) :m_position(position), m_texcoord(texcoord)
+	{
+	}
+	VertexMesh(const VertexMesh& vertex) :m_position(vertex.m_position), m_texcoord(vertex.m_texcoord)
+	{
+	}
+
+	~VertexMesh()
+	{
+	}
+
+public:
+	Vector3D m_position;
+	Vector2D m_texcoord;
 };
-
-cbuffer constant: register(b0)
-{
-	row_major float4x4 m_world;
-	row_major float4x4 m_view;
-	row_major float4x4 m_proj;
-	unsigned int m_time;
-};
-
-float4 psmain(PS_INPUT input) : SV_TARGET
-{
-	return Texture.Sample(TextureSampler,input.texcoord*0.5);
-}

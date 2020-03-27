@@ -22,6 +22,7 @@
 #include "InputListener.h"
 #include "Matrix4x4.h"
 
+
 class AppWindow: public Window,public InputListener
 {
 public:
@@ -50,12 +51,11 @@ public:
 
 private:
 	SwapChainPtr m_swap_chain;
-	VertexBufferPtr m_vb;
 	VertexShaderPtr m_vs;
 	PixelShaderPtr m_ps;
 	ConstantBufferPtr m_cb;
-	IndexBufferPtr m_ib;
 	TexturePtr m_wood_tex;
+	MeshPtr m_mesh;
 private:
 	long m_old_delta;
 	long m_new_delta;

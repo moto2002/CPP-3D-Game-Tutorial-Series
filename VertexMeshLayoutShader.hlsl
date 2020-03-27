@@ -8,26 +8,20 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-Texture2D Texture: register(t0);
-sampler TextureSampler: register(s0);
+struct VS_INPUT
+{
+	float4 position: POSITION0;
+	float2 texcoord: TEXCOORD0;
+};
 
-
-
-struct PS_INPUT
+struct VS_OUTPUT
 {
 	float4 position: SV_POSITION;
 	float2 texcoord: TEXCOORD0;
 };
 
-cbuffer constant: register(b0)
+VS_OUTPUT vsmain(VS_INPUT input)
 {
-	row_major float4x4 m_world;
-	row_major float4x4 m_view;
-	row_major float4x4 m_proj;
-	unsigned int m_time;
-};
-
-float4 psmain(PS_INPUT input) : SV_TARGET
-{
-	return Texture.Sample(TextureSampler,input.texcoord*0.5);
+	VS_OUTPUT output = (VS_OUTPUT)0;
+	return output;
 }
