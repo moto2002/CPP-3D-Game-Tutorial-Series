@@ -1,6 +1,18 @@
+// Copyright (c) 2019 - 2020 PardCode
+// All rights reserved.
+//
+// This file is part of CPP-3D-Game-Tutorial-Series Project, accessible from https://github.com/PardCode/CPP-3D-Game-Tutorial-Series
+// You can redistribute it and/or modify it under the terms of the GNU
+// General Public License 
+//
+// This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+// WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+#define _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS /*definition used to remove errors and warnings caused by std::codecvt_utf8 when C++ 17 is selected*/
+#define TINYOBJLOADER_IMPLEMENTATION
+
 #include "Mesh.h"
 
-#define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 
 #include <locale>
