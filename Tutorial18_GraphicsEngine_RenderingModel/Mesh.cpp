@@ -8,9 +8,12 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
+#define _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS /*definition used to remove errors and warnings caused by std::codecvt_utf8 when C++ 17 is selected*/
+#define TINYOBJLOADER_IMPLEMENTATION
+
 #include "Mesh.h"
 
-#define TINYOBJLOADER_IMPLEMENTATION
+
 #include <tiny_obj_loader.h>
 
 #include <locale>
